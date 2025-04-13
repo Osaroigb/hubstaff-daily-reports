@@ -5,9 +5,7 @@
 PROJECT_DIR=$(pwd)  # or specify an absolute path here
 VENV_DIR="$PROJECT_DIR/env"
 PYTHON_BIN="python3"
-
 CRON_SCHEDULE="0 8 * * *"  # runs daily at 8:00 AM
-REPORT_FILE="/var/www/html/daily_report.html"
 # -----------------------------------------------------
 
 echo "=== Deploying hubstaff-daily-reports ==="
@@ -36,7 +34,7 @@ python -m pip install --upgrade pip
 python -m pip install -r requirements.txt
 
 # create a cron job that uses the venv Python
-CRON_CMD="$VENV_DIR/bin/python $PROJECT_DIR/src/main.py > $REPORT_FILE"
+CRON_CMD="$VENV_DIR/bin/python $PROJECT_DIR/src/main.py > /var/www/html/daily_report_\$(date +\\%Y-\\%m-\\%d).html"
 
 # remove any existing line from crontab that might conflict
 crontab -l 2>/dev/null || true | grep -v "$CRON_CMD" > temp_cron
@@ -46,7 +44,7 @@ crontab temp_cron
 rm temp_cron
 
 echo "Cron job added: $CRON_SCHEDULE $CRON_CMD"
-echo "Reports will be saved to $REPORT_FILE"
+echo "Each day, a new HTML file will be generated in /var/www/html/ with today's date in its name."
 
 echo "=== Deployment Complete ==="
-echo "You can edit the cron schedule or the path(REPORT_FILE) as needed in deploy.sh."
+echo "You can edit the cron schedule or path as needed in this script."

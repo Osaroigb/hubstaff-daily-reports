@@ -22,6 +22,10 @@ def generate_html_report(
 
     all_user_ids = sorted(all_user_ids)
 
+    # check for "no data"
+    if not all_project_ids or not all_user_ids:
+        return build_no_data_html()
+
     # build the HTML table
     html_parts = []
     html_parts.append("<html>")
@@ -71,3 +75,19 @@ def format_time(seconds: int) -> str:
     minutes = remainder // 60
 
     return f"{hours:02d}:{minutes:02d}"
+
+
+def build_no_data_html() -> str:
+    """
+    Returns a simple HTML page indicating that no users or projects
+    had time logged for the period.
+    """
+    html_parts = []
+    html_parts.append("<html>")
+    html_parts.append("<head><meta charset='UTF-8'><title>No Data</title></head>")
+    html_parts.append("<body>")
+    html_parts.append("<h2>Daily Time Report</h2>")
+    html_parts.append("<p>No time was tracked for this period.</p>")
+    html_parts.append("</body></html>")
+
+    return "".join(html_parts)

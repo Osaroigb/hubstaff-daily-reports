@@ -1,6 +1,6 @@
 import os
 import configparser
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 def load_config(config_path: str = None) -> dict:
     """
@@ -35,5 +35,5 @@ def get_report_day() -> str:
     Get yesterday's date in ISO format (YYYY-MM-DD).
     """
     # Defaults to yesterday
-    yest = datetime.utcnow() - timedelta(days=3)
+    yest = datetime.now(timezone.utc) - timedelta(days=1)
     return yest.strftime('%Y-%m-%d')
