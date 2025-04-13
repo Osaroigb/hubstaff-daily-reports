@@ -75,10 +75,10 @@ A typical `config.ini` example:
 
 ```ini
 [hubstaff]
-app_token = YOUR_APP_TOKEN
-email = YOUR_EMAIL
-password = YOUR_PASSWORD
-organization_id = 123456
+APP_TOKEN=YOUR_APP_TOKEN
+EMAIL=YOUR_EMAIL
+PASSWORD=YOUR_PASSWORD
+ORGANIZATION_ID=123456
 ```
 
 - **app_token**: The app token for your custom Hubstaff-like API.  
