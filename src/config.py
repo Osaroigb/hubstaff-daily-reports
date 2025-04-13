@@ -29,6 +29,7 @@ def load_config(config_path: str = None) -> dict:
     
     return config
 
+
 def get_report_day() -> str:
     """
     Get yesterday's date in ISO format (YYYY-MM-DD).

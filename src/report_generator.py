@@ -10,16 +10,15 @@ def generate_html_report(
       - Rows are projects
       - Columns are users
     """
-
     # gather all user_ids and project_ids that actually appear in aggregator
     all_project_ids = sorted(aggregator.keys())
 
     # build a set of user_ids from the aggregator to ensure we only show relevant columns
     all_user_ids = set()
 
-    for p_id in aggregator:
-        for u_id in aggregator[p_id]:
-            all_user_ids.add(u_id)
+    for project_id in aggregator:
+        for user_id in aggregator[project_id]:
+            all_user_ids.add(user_id)
 
     all_user_ids = sorted(all_user_ids)
 
