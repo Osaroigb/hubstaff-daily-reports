@@ -48,7 +48,7 @@ This **Hubstaff Daily Reports** project provides a **Python-based utility** that
 
 1. **Clone or Download** this repository:
    ```bash
-   git clone https://github.com/YourName/hubstaff-daily-reports.git
+   git clone https://github.com/Osaroigb/hubstaff-daily-reports.git
    cd hubstaff-daily-reports
    ```
 
@@ -79,13 +79,11 @@ app_token = YOUR_APP_TOKEN
 email = YOUR_EMAIL
 password = YOUR_PASSWORD
 organization_id = 123456
-# report_day = 2025-04-10  (uncomment if you want a specific date)
 ```
 
 - **app_token**: The app token for your custom Hubstaff-like API.  
 - **email**, **password**: Credentials for retrieving `auth_token`.  
 - **organization_id**: The numeric ID of your Hubstaff-like organization.  
-- **report_day** (optional): If omitted, the script defaults to “yesterday.”  
 
 The script automatically parses this file, so the sysadmin only needs to edit `config.ini` without touching the code.
 
@@ -160,7 +158,7 @@ python src/main.py > daily_report.html
 
 ## License
 
-This project is licensed under the [UNLicense](LICENSE). You’re free to use, modify, and distribute it as you see fit.
+This project is licensed under the [Unlicense](LICENSE). You’re free to use, modify, and distribute it as you see fit.
 
 ---
 
